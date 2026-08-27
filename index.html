@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raindrop Co-op: Micro-Law Puddles</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header id="status-bar" class="status-bar">
+        <span id="level-status">Level 1</span>
+        <span id="target-status">Target: —</span>
+        <span id="law-status">No active law</span>
+      </header>
+
+      <main id="game-area" class="game-area">
+        <canvas
+          id="game-canvas"
+          width="960"
+          height="540"
+          aria-label="Raindrop co-op puzzle game"
+        ></canvas>
+
+        <div id="message" class="message" aria-live="polite"></div>
+
+        <div id="game-over" class="overlay hidden" role="dialog" aria-modal="true">
+          <div class="overlay-content">
+            <h1 id="game-over-title">Game Over</h1>
+            <p id="game-over-message"></p>
+            <button id="restart-button" type="button">Play Again</button>
+          </div>
+        </div>
+      </main>
+
+      <aside id="vote-panel" class="vote-panel">
+        <h2>Micro-Law Vote</h2>
+
+        <div id="proposal-name" class="proposal-name">No proposal</div>
+        <p id="proposal-description" class="proposal-description">
+          Merge raindrops into puddles, then vote on laws that change evaporation,
+          flow, and flooding before the map dries.
+        </p>
+
+        <div class="vote-controls">
+          <section class="player-vote" id="player1-vote-panel">
+            <h3>Player 1</h3>
+            <div class="vote-buttons">
+              <button id="p1-vote-yes" type="button" data-player="1" data-vote="yes">
+                Yes
+              </button>
+              <button id="p1-vote-no" type="button" data-player="1" data-vote="no">
+                No
+              </button>
+              <button
+                id="p1-vote-abstain"
+                type="button"
+                data-player="1"
+                data-vote="abstain"
+              >
+                Abstain
+              </button>
+            </div>
+            <div id="p1-vote-status" class="vote-status">Waiting</div>
+          </section>
+
+          <section class="player-vote" id="player2-vote-panel">
+            <h3>Player 2</h3>
+            <div class="vote-buttons">
+              <button id="p2-vote-yes" type="button" data-player="2" data-vote="yes">
+                Yes
+              </button>
+              <button id="p2-vote-no" type="button" data-player="2" data-vote="no">
+                No
+              </button>
+              <button
+                id="p2-vote-abstain"
+                type="button"
+                data-player="2"
+                data-vote="abstain"
+              >
+                Abstain
+              </button>
+            </div>
+            <div id="p2-vote-status" class="vote-status">Waiting</div>
+          </section>
+        </div>
+
+        <div id="vote-status" class="vote-status">Waiting for proposal</div>
+      </aside>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
